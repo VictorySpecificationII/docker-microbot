@@ -2,11 +2,12 @@
 
 version: 0.0
 os: linux
-files:
-  - source: /
-    destination: /tmp/microbot
+#files:
+#  - source: /
+#    destination: /tmp/microbot  # Optional, only if you need to copy any additional files to the instance before deployment
 
 container:
-  name: microbot  # Docker container name
-  image: "145353412842.dkr.ecr.eu-central-1.amazonaws.com/microbot:latest"
-  port: 80
+  name: microbot  # This should match the container name defined in your ECS task definition
+  image: "145353412842.dkr.ecr.eu-central-1.amazonaws.com/microbot:latest"  # ECR image URL
+  port: 80  # Ensure this matches the container's exposed port (e.g., in your Dockerfile or ECS task definition)
+  essential: true  # Mark this container as essential for the ECS task
