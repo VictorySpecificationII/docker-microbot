@@ -1,0 +1,12 @@
+# appspec.yml
+
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /tmp/microbot
+
+container:
+  name: microbot  # Docker container name
+  image: "145353412842.dkr.ecr.eu-central-1.amazonaws.com/microbot:latest"
+  port: 80
